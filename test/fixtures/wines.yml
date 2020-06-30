@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  color: MyString
+  year: 1
+  region: one
+  varietal: one
+
+two:
+  name: MyString
+  color: MyString
+  year: 1
+  region: two
+  varietal: two

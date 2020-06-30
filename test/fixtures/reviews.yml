@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stars: 1
+  content: MyString
+  price: 1.5
+  wine: one
+  user: one
+
+two:
+  stars: 1
+  content: MyString
+  price: 1.5
+  wine: two
+  user: two
