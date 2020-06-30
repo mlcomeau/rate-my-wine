@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   root 'sessions#welcome'
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/signup', to: 'users#new'
+  delete '/logout', to: 'sessions#destroy'
+
   resources :reviews
   resources :wines
   resources :varietals

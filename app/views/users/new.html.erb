@@ -1,0 +1,18 @@
+<h1>This is where a new user will signup </h1>
+<h3>Signing up is EASY</h3>
+
+<div>
+<%= form_for @user do |f|%>
+<p>
+<%= f.label :username %>:
+<%= f.text_field :username %></p>
+
+<p>
+<%= f.label :password %>:
+<%= f.password_field :password %>
+</p>
+
+<%= f.submit %>
+<% end %>
+
+</div>
