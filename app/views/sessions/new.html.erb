@@ -2,6 +2,7 @@
 
 <div>
 <%= form_for(:user) do |f|%>
+<%= flash[:message] %>
 <p>
 <%= f.label :username %>:
 <%= f.text_field :username %></p>

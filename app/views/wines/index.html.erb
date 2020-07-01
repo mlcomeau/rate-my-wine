@@ -1,0 +1,9 @@
+<h1> List of Wines: </h1>
+
+<% @wines.collect do |wine|%>
+<%= link_to wine.name, wine_path(wine)%>
+<% end %>
+
+<br>
+<p><i>Don't see your favorite wine?</i></p>
+<%= link_to "Add a Wine", new_wine_path %>

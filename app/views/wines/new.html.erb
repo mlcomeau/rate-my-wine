@@ -1,0 +1,42 @@
+<h1>Create a new wine:</h1>
+
+<div>
+<%= form_for @wine do |f|%>
+
+<%= flash[:message] %>
+<p>
+<%= f.label :name %>:
+<%= f.text_field :name %></p>
+
+<p>
+<%= f.label :color %>:
+<%= f.text_field :color %>
+</p>
+
+<p>
+<%= f.label :year %>:
+<%= f.text_field :year %>
+</p>
+
+<p>Select a region:</p>
+<%= f.collection_select(:region_id, Region.all, :id, :name, prompt: true) %>
+<p>Or add a new region!</p>
+<%= fields_for :region do |r| %>
+    <%= r.label :name %>
+    <%= r.text_field :name %>
+<% end %>
+<br><br>
+
+<p>Select a varietal:</p>
+<%= f.collection_select(:varietal_id, Varietal.all, :id, :name, prompt: true) %>
+<p>Or add a new varietal!</p>
+<%= fields_for :varietal do |v| %>
+    <%= v.label :name %>
+    <%= v.text_field :name %>
+<% end %>
+
+
+<p><%= f.submit %></p>
+<% end %>
+
+</div>
