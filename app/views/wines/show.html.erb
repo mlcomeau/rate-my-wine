@@ -7,3 +7,11 @@
 <h4><%= @wine.region.name %></h4>
 
 <h4><%= @wine.varietal.name %></h4>
+
+<h3>
+<% @wine.reviews.each do |r| %>
+ "<%= r.content%>"
+ <% end %>
+</h3>
+
+<h3><%= link_to "Review This Wine!", new_wine_review_path(@wine.id) %></h3>
