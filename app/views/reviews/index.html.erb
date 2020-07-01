@@ -1,0 +1,7 @@
+<h1>List of Reviews:</h1>
+
+<ul>
+<% @reviews.collect do |v|%>
+    <li><%= v.wine.name %> - <%= v.wine.varietal.name %> - <%= v.content %> - <%= v.user.username %></li>
+<% end %>
+</ul>

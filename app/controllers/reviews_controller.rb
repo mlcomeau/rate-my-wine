@@ -6,6 +6,12 @@ class ReviewsController < ApplicationController
     end 
 
     def index 
+        if params[:wine_id]
+            @wine = Wine.find_by_id(params[:wine_id])
+            @reviews = @wine.reviews
+        else 
+            @reviews = Review.all 
+        end 
     end 
 
     def create
