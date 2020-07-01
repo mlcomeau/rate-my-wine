@@ -13,7 +13,14 @@
   <%= link_to "Wines", wines_path %>
   <%= link_to "Varietals", varietals_path %>
   <%= link_to "Regions", regions_path %>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  <%= link_to "Reviews", reviews_path %>
+    <% if !logged_in? %>
+    <%= link_to "Login", login_path %>
+  <% end %>
+  <% if logged_in? %>
+    <%= link_to "Home", user_path(current_user.id) %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  <% end %>
 
   </div>
 

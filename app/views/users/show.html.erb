@@ -2,3 +2,14 @@
 
 <p>This is the user show page.</p>
 
+<div>
+<p>Here are the reviews you've written:</p>
+<% if @user.reviews.length == 0 %>
+    <h4>You haven't written any reviews! You should go find some wine for reviewing!</h4>
+<% end %>
+<ol>
+<% @user.reviews.each do |review|%>
+    <li><%= review.content %> - <%= review.wine.name %></li>
+<% end %>
+</ol>
+</div>

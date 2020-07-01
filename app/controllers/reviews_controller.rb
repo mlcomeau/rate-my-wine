@@ -1,13 +1,17 @@
 class ReviewsController < ApplicationController
 
-    def new 
-        @wine = Wine.find_by_id(params[:wine_id])
-        @review = @wine.reviews.build
+    def new
+        if logged_in? 
+            @wine = Wine.find_by_id(params[:wine_id])
+            @review = @wine.reviews.build
+        else 
+            flash[:message] = "You have to be logged in to do that."
+            redirect_to login_path 
+        end 
     end 
 
     def index 
-        if params[:wine_id]
-            @wine = Wine.find_by_id(params[:wine_id])
+        if @wine = Wine.find_by_id(params[:wine_id])
             @reviews = @wine.reviews
         else 
             @reviews = Review.all 
