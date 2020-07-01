@@ -1,0 +1,5 @@
+<h3>"<%= @review.content %>"</h3>
+
+<p>This review is for: <%= @review.wine.name %></p>
+<p>Written by: <%= @review.user.username %></p>
+<p>Created at: <%= @review.created_at.strftime("%c") %></p>

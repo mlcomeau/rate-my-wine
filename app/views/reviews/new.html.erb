@@ -1,0 +1,27 @@
+<h1>Write your review for <%= @review.wine.name %> - <%= @review.wine.varietal.name %>:</h1>
+
+<%= form_for @review do |f| %>
+
+    <%= flash[:message] %>
+
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <br>
+
+    <%= f.label :stars %>
+    <%= f.number_field(:stars, in: 1..5) %>
+    <br>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <br>
+
+    <%= f.hidden_field :wine_id %>
+
+    <%= f.submit %>
+
+<% end %>
+
+
+
+

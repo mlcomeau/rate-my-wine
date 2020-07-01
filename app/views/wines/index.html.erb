@@ -1,7 +1,7 @@
 <h1> List of Wines: </h1>
 
 <% @wines.collect do |wine|%>
-<%= link_to wine.name, wine_path(wine)%>
+<%= link_to wine.name, wine_path(wine)%> - <%= wine.year %> - <%= wine.varietal.name %>
 <% end %>
 
 <br>

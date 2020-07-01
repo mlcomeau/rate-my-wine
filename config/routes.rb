@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :reviews
-  resources :wines
+  resources :wines do 
+    resources :reviews, only: [:new, :index]
+  end 
   resources :varietals
   resources :regions
   resources :users
