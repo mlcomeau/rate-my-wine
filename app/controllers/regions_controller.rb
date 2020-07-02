@@ -1,6 +1,6 @@
 class RegionsController < ApplicationController
     
     def index 
-        @regions = Region.all
+        @regions = Region.alpha
     end 
 end

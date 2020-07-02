@@ -1,5 +1,5 @@
 class VarietalsController < ApplicationController
     def index 
-        @varietals = Varietal.all 
+        @varietals = Varietal.alpha
     end 
 end
