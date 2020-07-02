@@ -1,5 +1,5 @@
 <h1>List of Regions:</h1>
 
 <% @regions.collect do |v|%>
-    <p><%= v.name %></p>
+    <p><%= link_to v.name, region_wines_path(v.id) %></p>
 <% end %>

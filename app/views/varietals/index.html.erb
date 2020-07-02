@@ -1,5 +1,5 @@
 <h1>List of Varietals:</h1>
 
 <% @varietals.collect do |v|%>
-    <p><%= v.name %></p>
+    <p><%= link_to v.name, varietal_wines_path(v.id) %></p>
 <% end %>

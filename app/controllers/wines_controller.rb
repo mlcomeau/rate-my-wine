@@ -1,13 +1,17 @@
 class WinesController < ApplicationController
 
     def index 
-        @wines = Wine.alpha
+        if params[:varietal_id]
+            @wines = Varietal.find(params[:varietal_id]).wines 
+        elsif params[:region_id]
+            @wines = Region.find(params[:region_id]).wines 
+        else 
+            @wines = Wine.alpha
+        end 
     end 
 
     def new 
         @wine = Wine.new 
-        @wine.build_region
-        @wine.build_varietal
     end 
 
     def create 
