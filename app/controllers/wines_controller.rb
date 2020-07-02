@@ -6,14 +6,13 @@ class WinesController < ApplicationController
         elsif params[:region_id]
             @wines = Region.find(params[:region_id]).wines 
         else 
-            @wines = Wine.alpha
+            @wines = Wine.order_by_stars
         end 
     end 
 
     def new 
         if logged_in?
             @wine = Wine.new 
-            @wine.reviews.build
         else
             flash[:message] = "You have to be logged in to do that."
             redirect_to login_path 
@@ -35,6 +34,6 @@ class WinesController < ApplicationController
 
     private 
     def wine_params
-        params.require(:wine).permit(:name, :color, :year, :varietal_id, :region_id, reviews_attributes: [:price, :stars, :content])
+        params.require(:wine).permit(:name, :color, :year, :varietal_id, :region_id)
     end 
 end

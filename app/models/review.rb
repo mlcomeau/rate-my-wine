@@ -7,4 +7,6 @@ class Review < ApplicationRecord
   validates :price, numericality: true 
 
   validates :wine, uniqueness: { scope: :user, message: "- You already reviewed this wine!" }
+
+
 end
