@@ -1,6 +1,8 @@
 <h1>This is where a new user will signup </h1>
 <h3>Signing up is EASY</h3>
 
+<%= render partial: 'layouts/errors', locals: { object: @user } %>
+
 <div>
 <%= form_for @user do |f|%>
 <p>

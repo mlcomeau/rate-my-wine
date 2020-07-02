@@ -23,8 +23,7 @@ class ReviewsController < ApplicationController
         @review.user_id = session[:user_id]
         if @review.save 
             redirect_to review_path(@review)
-        else 
-            flash[:message] = "Please fill in all fields!"
+        else
             render :new 
         end 
     end 

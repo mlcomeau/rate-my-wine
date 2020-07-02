@@ -15,7 +15,6 @@ class WinesController < ApplicationController
         if @wine.save 
             redirect_to wine_path(@wine)
         else 
-            flash[:message] = "Please fill in all fields."
             render :new 
         end 
     end 

@@ -1,8 +1,8 @@
 <h1>Write your review for <%= @review.wine.name %> - <%= @review.wine.varietal.name %>:</h1>
 
-<%= form_for @review do |f| %>
+<%= render partial: 'layouts/errors', locals: { object: @review } %>
 
-    <%= flash[:message] %>
+<%= form_for @review do |f| %>
 
     <%= f.label :price %>
     <%= f.text_field :price %>
