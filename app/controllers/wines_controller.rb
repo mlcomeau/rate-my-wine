@@ -11,11 +11,17 @@ class WinesController < ApplicationController
     end 
 
     def new 
-        @wine = Wine.new 
+        if logged_in?
+            @wine = Wine.new 
+            @wine.reviews.build
+        else
+            flash[:message] = "You have to be logged in to do that."
+            redirect_to login_path 
+        end   
     end 
 
     def create 
-        @wine = Wine.new(wine_params(:name, :color, :year, :varietal_id, :region_id, varietal_attributes: [:name], region_attributes: [:name]))
+        @wine = Wine.new(wine_params)
         if @wine.save 
             redirect_to wine_path(@wine)
         else 
@@ -28,7 +34,7 @@ class WinesController < ApplicationController
     end 
 
     private 
-    def wine_params(*args)
-        params.require(:wine).permit(*args)
+    def wine_params
+        params.require(:wine).permit(:name, :color, :year, :varietal_id, :region_id, reviews_attributes: [:price, :stars, :content])
     end 
 end

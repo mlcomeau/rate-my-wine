@@ -27,6 +27,21 @@
 <p>Select a varietal:</p>
 <%= f.collection_select(:varietal_id, Varietal.all, :id, :name, prompt: true) %>
 
+<p>So what'd you think? Write your review!</p>
+<%= f.fields_for :reviews do |r| %>
+    <%= r.label :price %>
+    <%= r.text_field :price %>
+    <br>
+
+    <%= r.label :stars %>
+    <%= r.number_field(:stars, in: 1..5) %>
+    <br>
+
+    <%= r.label :content %>
+    <%= r.text_area :content %>
+    <br>
+
+<% end %>
 
 <p><%= f.submit %></p>
 <% end %>
