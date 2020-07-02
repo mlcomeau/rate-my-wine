@@ -7,4 +7,10 @@ class User < ApplicationRecord
     validates :username, uniqueness: true 
     validates :username, presence: true 
     validates :password, presence: true 
+
+    def self.find_or_create_by_omniauth(auth_hash)
+        where(:username => auth_hash["info"]["email"]).first_or_create do |user|
+            user.password = SecureRandom.hex
+        end 
+    end 
 end

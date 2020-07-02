@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   delete '/logout', to: 'sessions#destroy'
 
+  get 'auth/google_oauth2/callback', to: 'sessions#create'
+  get 'auth/failure', to: 'sessions#new'
+
   resources :reviews
   resources :wines do 
     resources :reviews, only: [:new, :index]
