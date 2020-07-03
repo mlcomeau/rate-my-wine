@@ -7,27 +7,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <div>
-  <%= link_to "Wines", wines_path %>
-  <%= link_to "Varietals", varietals_path %>
-  <%= link_to "Regions", regions_path %>
-  <%= link_to "Reviews", reviews_path %>
-    <% if !logged_in? %>
-    <%= link_to "Login", login_path %>
-  <% end %>
-  <% if logged_in? %>
-    <%= link_to "Home", user_path(current_user.id) %>
-    <%= link_to "Logout", logout_path, method: :delete %>
-  <% end %>
+  <nav>
+  <div class="nav-wrapper" >
 
+    <%= link_to "RateMyWine", root_path, :data => {:class => "brand-logo"} %>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to "All Wines", wines_path %></li>
+      <li><%= link_to "Find By Varietals", varietals_path %></li>
+      <li><%= link_to "Find By Regions", regions_path %></li>
+      <li><%= link_to "Wine Reviews", reviews_path %></li>
+      <% if !logged_in? %>
+        <li><%= link_to "Login", login_path %></li>
+      <% else %>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <% end %>
+    </ul>
   </div>
-
+  </nav>
 
 
   <body>
+  <div class="container">
     <%= yield %>
+  </div>
     <footer>
     </footer>
   </body>

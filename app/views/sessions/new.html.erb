@@ -1,4 +1,4 @@
-<h1> this is where you will login </h1>
+<h1> login to start reviewing wines </h1>
 
 <div>
 <%= form_for(:user) do |f|%>
@@ -12,9 +12,12 @@
 <%= f.password_field :password %>
 </p>
 
-<%= f.submit "Log In" %>
+<%= f.submit "Login", class: "btn waves-effect waves-light" %>
 <% end %>
 
 </div>
+<br>
 
-<p>Don't have an account? <%= link_to "Sign Up Today!", signup_path %>
+<%= link_to "Login With Google", "/auth/google_oauth2", class: "btn waves-effect waves-light" %>
+
+<p>Don't have an account?<%= link_to "Sign Up Today!", signup_path, class: "btn waves-effect waves-light" %>

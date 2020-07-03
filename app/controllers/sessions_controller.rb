@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
     def welcome 
+        @wines = Wine.latest_three
     end 
     
     def new 

@@ -1,9 +1,28 @@
-<h1>Welcome to Rate My Wine</h1>
+<h1 class="center-align">Welcome to Rate My Wine</h1>
+<p class="center-align" id="sofia-font">Here are some wines our users have recently added... </p>
 
-<div>
-<p><%= link_to "Login", login_path  %></p>
-<p>OR</p>
-<p><%= link_to "Signup", signup_path %></p>
-<p>OR</p>
-<p><%= link_to "Login With Google", "/auth/google_oauth2" %></p>
+<div class="row">
+
+    <div class="col s4">
+        <%= image_tag 'wine_image.jpg', {width: 150, height: 200, class: "displayed" } %>
+        <div class="center-align">
+        <h4><%= link_to @wines[0]["name"], wine_path(@wines[0]) %></h4>
+        <h4><%= @wines[0].varietal.name %></h4>
+        </div>
+    </div>
+    <div class="col s4">
+        <%= image_tag 'wine_image.jpg', {width: 150, height: 200, class: "displayed" }  %>
+        <div class="center-align">
+        <h4><%= link_to @wines[1]["name"], wine_path(@wines[1]) %></h4>
+        <h4><%= @wines[1].varietal.name %></h4>
+        </div>
+    </div>
+    <div class="col s4">
+        <%= image_tag 'wine_image.jpg', {width: 150, height: 200, class: "displayed" }  %>
+        <div class="center-align">
+        <h4><%= link_to @wines[2]["name"], wine_path(@wines[2]) %></h4>
+        <h4><%= @wines[2].varietal.name %></h4>
+        </div>
+    </div>
+
 </div>
