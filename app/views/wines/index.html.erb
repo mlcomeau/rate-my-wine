@@ -1,11 +1,25 @@
-<h1> List of Wines: </h1>
+<%= image_tag 'wine_bottle_2', {height: 75, width: 75, class: "left"} %><h1 id="sofia-font"> List of Wines: </h1>
+<div class="right-align">
+<h5 id="sofia-font"><i>Don't see your favorite wine?</i></h5>
+<%= link_to "Add a Wine", new_wine_path, class: "waves-effect waves-light btn-small" %>
+</div>
 
-<ul>
-<% @wines.collect do |wine|%>
-<li><%= link_to wine.name, wine_path(wine)%> - <%= wine.year %> - <%= wine.varietal.name %></li>
-<% end %>
-</ul>
+<table class="striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Varietal</th>
+        <th>Year</th>   
+    </tr>
+    </thead>
 
-<br>
-<p><i>Don't see your favorite wine?</i></p>
-<%= link_to "Add a Wine", new_wine_path %>
+    <tbody>
+    <% @wines.collect do |wine|%>
+    <tr>
+        <td><%= link_to wine.name, wine_path(wine)%></td>
+        <td><%= wine.varietal.name %></td>
+        <td><%= wine.year %></td>
+    </tr>
+    <% end %>
+    </tbody>
+<table>
