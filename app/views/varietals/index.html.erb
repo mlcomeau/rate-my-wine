@@ -1,5 +1,10 @@
-<h1>List of Varietals:</h1>
+<div class="container">
+<h1 id="sofia-font">List of Varietals:</h1>
 
+
+<ul class="collection" id="center">
 <% @varietals.collect do |v|%>
-    <p><%= link_to v.name, varietal_wines_path(v.id) %></p>
+    <li class="collection-item" ><%= link_to v.name, varietal_wines_path(v.id) %></li>
 <% end %>
+</ul>
+</div>
