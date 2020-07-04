@@ -7,6 +7,7 @@
 <table class="striped">
     <thead>
     <tr>
+        <th>Rating</th>
         <th>Name</th>
         <th>Varietal</th>
         <th>Year</th>   
@@ -16,6 +17,7 @@
     <tbody>
     <% @wines.collect do |wine|%>
     <tr>
+        <td><%= wine.average_rating %></td>
         <td><%= link_to wine.name, wine_path(wine)%></td>
         <td><%= wine.varietal.name %></td>
         <td><%= wine.year %></td>

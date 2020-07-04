@@ -14,4 +14,12 @@ class Wine < ApplicationRecord
     last(3)
   end 
 
+  def average_rating
+    reviews.average(:stars)
+  end 
+
+  def average_price
+    reviews.average(:price)
+  end 
+
 end

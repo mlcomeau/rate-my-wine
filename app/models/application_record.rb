@@ -4,4 +4,5 @@ class ApplicationRecord < ActiveRecord::Base
   def self.alpha
     order(:name)
   end 
+
 end

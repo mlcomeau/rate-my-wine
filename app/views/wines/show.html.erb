@@ -1,21 +1,41 @@
-<h1><u><%= @wine.name %></h1></u>
+<h3><%= @wine.name %> - <%= @wine.varietal.name %> - <%= @wine.year %></h3><div id="float">
+<%= link_to "Review This Wine", new_wine_review_path(@wine.id), class: "waves-effect waves-light btn" %></div>
+<br><br><br>
+<table class="striped">
+<tbody>
+    <tr>
+        <td>COLOR</td>
+        <td><%= @wine.color %></td>
+    </tr>
 
-<ul>
-<li><%= @wine.color %></li>
+    <tr>
+        <td>REGION</td>
+        <td><%= @wine.region.name %></td>
+    </tr>
 
-<li><%= @wine.year %></li>
+    <tr>
+        <td>AVERAGE STARS</td>
 
-<li><%= @wine.region.name %></li>
+        <% if @wine.reviews.length != 0 %>
+            <td><% @wine.average_rating.round(half: :down).round.times do %>
+                <i class="tiny material-icons">star</i>
+            <% end %>(<%= @wine.average_rating %>)</td>
+        <% else %>
+            <td>This wine has no reviews yet...</td>
+        <% end %>
+    </tr>
 
-<li><%= @wine.varietal.name %></li>
-</ul>
+    <tr>
+        <td>AVERAGE PRICE</td>
+        <td>$<%= @wine.average_price %></td>
+    </tr>
+</tbody>
+</table>
 
 <p class="review">
 <% @wine.reviews.each do |r| %>
-<blockquote>
- <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username %> paid: ($<%= r.price %>)<br>
-</blockquote>
- <% end %>
+    <blockquote>
+    <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username.capitalize %> paid: $<%= r.price %><br>
+    </blockquote>
+<% end %>
 </p>
-
-<h3><%= link_to "Review This Wine!", new_wine_review_path(@wine.id) %></h3>
