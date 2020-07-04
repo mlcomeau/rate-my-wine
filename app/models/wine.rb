@@ -22,4 +22,10 @@ class Wine < ApplicationRecord
     reviews.average(:price)
   end 
 
+  def wine_var
+    name + " " + varietal.name
+  end 
+
+
+
 end

@@ -8,5 +8,8 @@ class Review < ApplicationRecord
 
   validates :wine, uniqueness: { scope: :user, message: "- You already reviewed this wine!" }
 
+  def self.highest_rating
+    order(stars: :desc)
+  end  
 
 end

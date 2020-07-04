@@ -1,11 +1,16 @@
-<h1>List of Reviews:</h1>
+<h3 id="sofia-font">Check out our top reviewed wines!</h3>
 
 
 <% @reviews.collect do |v|%>
 <blockquote>
+    <% if v.stars != 0 %>
+        <% v.stars.round(half: :down).round.times do %>
+            <i class="tiny material-icons">star</i>
+        <% end %>
+    <% end %><br>
     "<%= v.content %>"<br>
-    <%= v.wine.name %> - <%= link_to v.wine.varietal.name, wine_path(v.wine) %><br>
-    <%= v.user.username %><br>
+    <%= link_to v.wine.wine_var, wine_path(v.wine) %><br>
+    <%= v.user.username.capitalize %><br>
 </blockquote>
 <% end %>
 

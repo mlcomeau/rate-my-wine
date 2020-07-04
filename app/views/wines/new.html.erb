@@ -1,33 +1,28 @@
-<h1>Create a new wine:</h1>
+<h3 id="sofia-font">Create a new wine:</h3>
 
 <%= render partial: 'layouts/errors', locals: { object: @wine } %>
 
 
 <%= form_for @wine do |f|%>
 
-<p>
-<%= f.label :name %>
-<%= f.text_field :name %></p>
+<%= f.text_field :name, placeholder: "name" %>
 
-<p>
+
 <%= f.label :color %>
 <%= f.select "color", options_for_select(["Red", "White", "Rose", "Orange"])%>
-</p>
 
-<p>
+
 <%= f.label :year %>
 <%= f.select :year, (1900)..(Date.today.year), :selected => Time.current.year%>
-</p>
 
-<p>Select a region:
+<label>Select a region</label>
 <%= f.collection_select(:region_id, Region.alpha, :id, :name, prompt: true) %>
-</p>
 
 
-<p>Select a varietal:
+<label>Select a varietal</label>
 <%= f.collection_select(:varietal_id, Varietal.alpha, :id, :name, prompt: true) %>
-</p>
 
-<p><%= f.submit %></p>
+<p class="waves-effect waves-light btn-large"><%= f.submit%></p>
 <% end %>
+
 
