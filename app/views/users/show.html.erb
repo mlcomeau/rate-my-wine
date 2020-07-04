@@ -1,15 +1,15 @@
 <h1> Hello, <%= @user.username %>! </h1>
 
-<p>This is the user show page.</p>
 
-<div>
-<p>Here are the reviews you've written:</p>
+<h3>You have written <%= @user.reviews.length %> reviews:</h3>
+<div class="container">
 <% if @user.reviews.length == 0 %>
     <h4>You haven't written any reviews! You should go find some wine for reviewing!</h4>
 <% end %>
-<ol>
+<ul>
 <% @user.reviews.each do |review|%>
-    <li><%= review.content %> - <%= review.wine.name %></li>
+    <div class="divider"></div>
+    <div class="section"><li><%= review.content %> - <%= review.wine.name %></li></div>
 <% end %>
-</ol>
+</ul>
 </div>

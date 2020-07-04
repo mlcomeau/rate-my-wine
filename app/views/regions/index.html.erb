@@ -1,5 +1,9 @@
-<h1>List of Regions:</h1>
+<div class="container">
+<h1 id="sofia-font">List of Regions:</h1>
 
+<ul class="collection" id="center">
 <% @regions.collect do |v|%>
-    <p><%= link_to v.name, region_wines_path(v.id) %></p>
+    <li class="collection-item"><%= link_to v.name, region_wines_path(v.id) %></li>
 <% end %>
+
+</div>

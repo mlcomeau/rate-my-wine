@@ -1,7 +1,11 @@
 <h1>List of Reviews:</h1>
 
-<ul>
+
 <% @reviews.collect do |v|%>
-    <li><%= v.wine.name %> - <%= v.wine.varietal.name %> - <%= v.content %> - <%= v.user.username %></li>
+<blockquote>
+    "<%= v.content %>"<br>
+    <%= v.wine.name %> - <%= link_to v.wine.varietal.name, wine_path(v.wine) %><br>
+    <%= v.user.username %><br>
+</blockquote>
 <% end %>
-</ul>
+

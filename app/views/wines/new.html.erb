@@ -2,7 +2,7 @@
 
 <%= render partial: 'layouts/errors', locals: { object: @wine } %>
 
-<div>
+
 <%= form_for @wine do |f|%>
 
 <p>
@@ -11,7 +11,7 @@
 
 <p>
 <%= f.label :color %>
-<%= f.select "color", options_for_select(["Red", "White", "Rose", "Orange"]), prompt: true %>
+<%= f.select "color", options_for_select(["Red", "White", "Rose", "Orange"])%>
 </p>
 
 <p>
@@ -19,15 +19,15 @@
 <%= f.select :year, (1900)..(Date.today.year), :selected => Time.current.year%>
 </p>
 
-<p>Select a region:</p>
+<p>Select a region:
 <%= f.collection_select(:region_id, Region.alpha, :id, :name, prompt: true) %>
+</p>
 
-<br>
 
-<p>Select a varietal:</p>
+<p>Select a varietal:
 <%= f.collection_select(:varietal_id, Varietal.alpha, :id, :name, prompt: true) %>
+</p>
 
 <p><%= f.submit %></p>
 <% end %>
 
-</div>

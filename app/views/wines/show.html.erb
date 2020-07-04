@@ -1,17 +1,21 @@
-<h1><%= @wine.name %></h1>
+<h1><u><%= @wine.name %></h1></u>
 
-<h4><%= @wine.color %></h4>
+<ul>
+<li><%= @wine.color %></li>
 
-<h4><%= @wine.year %></h4>
+<li><%= @wine.year %></li>
 
-<h4><%= @wine.region.name %></h4>
+<li><%= @wine.region.name %></li>
 
-<h4><%= @wine.varietal.name %></h4>
+<li><%= @wine.varietal.name %></li>
+</ul>
 
-<h3>
+<p class="review">
 <% @wine.reviews.each do |r| %>
- "<%= r.content%>"
+<blockquote>
+ <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username %> paid: ($<%= r.price %>)<br>
+</blockquote>
  <% end %>
-</h3>
+</p>
 
 <h3><%= link_to "Review This Wine!", new_wine_review_path(@wine.id) %></h3>
