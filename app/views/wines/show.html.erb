@@ -32,10 +32,15 @@
 </tbody>
 </table>
 
+<u><h5 id="sofia-font">Heres what our users have to say...</h5></u>
 <p class="review">
-<% @wine.reviews.each do |r| %>
-    <blockquote>
-    <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username.capitalize %> paid: $<%= r.price %><br>
-    </blockquote>
+<% if @wine.reviews.length == 0%>
+    <p>No reviews yet, you could be the first!</p>
+<% else %>
+    <% @wine.reviews.each do |r| %>
+        <blockquote>
+        <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username.capitalize %> paid: $<%= r.price %><br>
+        </blockquote>
+    <% end %>
 <% end %>
 </p>

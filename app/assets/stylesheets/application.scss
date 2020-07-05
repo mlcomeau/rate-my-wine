@@ -20,28 +20,32 @@
  @import "https://fonts.googleapis.com/icon?family=Material+Icons";
  @import "https://fonts.googleapis.com/css?family=Sofia";
 
+ // centers container 
 .displayed {
     display: block;
     margin-left: auto;
     margin-right: auto }
 
+//stylize font 
 #sofia-font {
     font-family: 'Sofia';
-
-}
-
-#center {
-    text-align:center;  
 }
 
 .review {
     font-size: large;
 }
 
+//centers font 
+#center {
+    text-align: center;  
+}
+
+//display select fields on forms 
 select{
     display: block;
    }
 
+//float left 
 #float {
     float: right;
 }

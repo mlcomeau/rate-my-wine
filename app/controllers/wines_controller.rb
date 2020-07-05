@@ -3,8 +3,10 @@ class WinesController < ApplicationController
     def index 
         if params[:varietal_id]
             @wines = Varietal.find(params[:varietal_id]).wines 
+            @filter_name = Varietal.find(params[:varietal_id]).name 
         elsif params[:region_id]
             @wines = Region.find(params[:region_id]).wines 
+            @filter_name = Region.find(params[:region_id]).name 
         else 
             @wines = Wine.order_by_stars
         end 

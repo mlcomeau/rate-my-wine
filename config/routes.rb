@@ -10,14 +10,14 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: 'sessions#new'
 
-  resources :reviews
-  resources :wines do 
+  resources :reviews, except: [:update, :destroy, :edit]
+  resources :wines, except: [:update, :destroy, :edit] do 
     resources :reviews, only: [:new, :index]
   end 
-  resources :varietals do 
+  resources :varietals, only: [:index] do 
     resources :wines, only: [:index]
   end 
-  resources :regions do 
+  resources :regions, only: [:index] do 
     resources :wines, only: [:index]
   end 
   resources :users, only: [:new, :create, :show]
