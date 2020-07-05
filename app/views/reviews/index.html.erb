@@ -4,12 +4,12 @@
 <% @reviews.collect do |v|%>
 <blockquote>
     <% if v.stars != 0 %>
+        <%= link_to v.wine.wine_var, wine_path(v.wine) %><br>
         <% v.stars.round(half: :down).round.times do %>
             <i class="tiny material-icons">star</i>
         <% end %>
     <% end %><br>
     "<%= v.content %>"<br>
-    <%= link_to v.wine.wine_var, wine_path(v.wine) %><br>
     <%= v.user.username.capitalize %><br>
 </blockquote>
 <% end %>

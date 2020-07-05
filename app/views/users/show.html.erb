@@ -9,7 +9,14 @@
 <ul>
 <% @user.reviews.each do |review|%>
     <div class="divider"></div>
-    <div class="section"><li><%= review.content %> - <%= review.wine.name %></li></div>
+    <div class="section">
+        <li><i class="smll material-icons">local_bar</i> <%= review.wine.name %> - <%= review.wine.varietal.name %></li>
+        <li>"<%= review.content %>"</li>
+        <li><%= review.stars.times do %>
+                <i class="tiny material-icons">star</i>
+            <% end %>
+        </li>
+    </div>
 <% end %>
 </ul>
 </div>
