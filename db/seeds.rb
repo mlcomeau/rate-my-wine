@@ -73,3 +73,6 @@ Region.find_or_create_by(name: 'Spain')
 Region.find_or_create_by(name: 'Tuscany')
 Region.find_or_create_by(name: 'Washington')
 Region.find_or_create_by(name: 'Willamette Valley')
+Region.find_or_create_by(name: 'Italy')
+Region.find_or_create_by(name: 'France')
+
