@@ -21,6 +21,23 @@
 
 <label>Select a varietal</label>
 <%= f.collection_select(:varietal_id, Varietal.alpha, :id, :name, prompt: true) %>
+<br>
+<h5 id="sofia-font">So what'd you think?</h5>
+<%= f.fields_for :reviews do |r| %>
+    <%= r.label :price %>
+    <%= r.text_field :price %>
+    <br>
+
+    <%= r.label :stars %>
+    <%= r.number_field(:stars, in: 1..5) %>
+    <br>
+
+    <%= r.label :content %>
+    <%= r.text_area :content %>
+
+    <%= r.hidden_field :user_id %>
+
+<% end %>
 
 <p class="waves-effect waves-light btn-large"><%= f.submit%></p>
 <% end %>

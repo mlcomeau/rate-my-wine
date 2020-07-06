@@ -15,6 +15,8 @@ class WinesController < ApplicationController
     def new 
         if logged_in?
             @wine = Wine.new 
+            @review = @wine.reviews.build()
+            @review.user_id = session[:user_id]
         else
             flash[:message] = "You have to be logged in to do that."
             redirect_to login_path 
@@ -37,7 +39,7 @@ class WinesController < ApplicationController
     private 
 
     def wine_params
-        params.require(:wine).permit(:name, :color, :year, :varietal_id, :region_id)
+        params.require(:wine).permit(:name, :color, :year, :varietal_id, :region_id, reviews_attributes: [:price, :stars, :content, :user_id])
     end 
 
 end
