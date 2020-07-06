@@ -1,5 +1,8 @@
 <h1> Hello, <%= @user.username %>! </h1>
 
+<p id="sofia-font">Did you try another wine? Tell us about it!</p>
+<%= link_to "Add a Wine", new_wine_path, class: "waves-effect waves-light btn-small" %>
+
 
 <h3>You have written <%= @user.reviews.length %> reviews:</h3>
 <div class="container">
