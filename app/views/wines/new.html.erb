@@ -25,7 +25,7 @@
 <h5 id="sofia-font">So what'd you think?</h5>
 <%= f.fields_for :reviews do |r| %>
     <%= r.label :price %>
-    <%= r.text_field :price %>
+    ($)<%= r.text_field :price %>
     <br>
 
     <%= r.label :stars %>

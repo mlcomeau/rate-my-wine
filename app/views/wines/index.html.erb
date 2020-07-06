@@ -12,6 +12,7 @@
             <th>Name</th>
             <th>Varietal</th>
             <th>Year</th>   
+            <th>Avg. Price</th>
         </tr>
         </thead>
 
@@ -22,6 +23,7 @@
             <td><%= link_to wine.name, wine_path(wine)%></td>
             <td><%= wine.varietal.name %></td>
             <td><%= wine.year %></td>
+            <td>$<%= wine.pretty_price %>
         </tr>
         <% end %>
         </tbody>

@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
         @review = Review.new(review_params(:price, :stars, :content, :wine_id))
         @review.user_id = session[:user_id]
         if @review.save 
-            redirect_to review_path(@review)
+            redirect_to wine_path(@review.wine_id)
         else
             render :new 
         end 
