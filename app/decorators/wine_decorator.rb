@@ -18,7 +18,10 @@ class WineDecorator < Draper::Decorator
     else 
       h.image_tag('white_wine.png', class: "displayed")
     end 
-    
+  end 
+
+  def wine_link
+    h.link_to object.name, h.wine_path(object)
   end 
 
 
