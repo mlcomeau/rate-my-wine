@@ -3,26 +3,15 @@
 
 <div class="row">
 
+<% @wines.each do |wine| %>
     <div class="col s4">
-        <%= image_tag 'wine_image.jpg', {width: 150, height: 200, class: "displayed" } %>
+        <%= wine.wine_image %>
         <div class="center-align">
-        <h4><%= link_to @wines[0]["name"], wine_path(@wines[0]) %></h4>
-        <h4><%= @wines[0].varietal.name %></h4>
+        <h4><%= link_to wine.name, wine_path(wine) %></h4>
+        <h4><%= wine.varietal.name %></h4>
         </div>
     </div>
-    <div class="col s4">
-        <%= image_tag 'wine_image.jpg', {width: 150, height: 200, class: "displayed" }  %>
-        <div class="center-align">
-        <h4><%= link_to @wines[1]["name"], wine_path(@wines[1]) %></h4>
-        <h4><%= @wines[1].varietal.name %></h4>
-        </div>
-    </div>
-    <div class="col s4">
-        <%= image_tag 'wine_image.jpg', {width: 150, height: 200, class: "displayed" }  %>
-        <div class="center-align">
-        <h4><%= link_to @wines[2]["name"], wine_path(@wines[2]) %></h4>
-        <h4><%= @wines[2].varietal.name %></h4>
-        </div>
-    </div>
+<% end %>
 
 </div>
+

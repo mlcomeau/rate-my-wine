@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
     def welcome 
-        @wines = Wine.latest_three
+        wines = Wine.latest_three
+        @wines = WineDecorator.decorate_collection(wines)
     end 
     
     def new 
