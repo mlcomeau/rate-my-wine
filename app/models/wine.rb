@@ -25,15 +25,10 @@ class Wine < ApplicationRecord
   def average_price
     reviews.average(:price)
   end 
-
-  def pretty_price 
-    average_price.round(2) 
-  end 
-
+  
   def wine_var
-    name + " " + varietal.name
+    name + " - " + varietal.name
   end 
-
 
 
 end

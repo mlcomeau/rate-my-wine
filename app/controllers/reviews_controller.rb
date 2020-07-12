@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
         if @wine = Wine.find_by_id(params[:wine_id])
             @reviews = @wine.reviews
         else 
-            @reviews = Review.highest_rating
+            @reviews = ReviewDecorator.decorate_collection(Review.most_recent)
         end 
     end 
 

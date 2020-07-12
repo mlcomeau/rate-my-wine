@@ -1,8 +1,9 @@
-<h1 class="center-align">Welcome to Rate My Wine</h1>
-<p class="center-align" id="sofia-font">Here are some wines our users have recently added... </p>
+<div class="center-align">
+<h1>Welcome to Rate My Wine</h1>
+<p id="sofia-font">Here are some wines our users have recently added... </p>
+</div>
 
 <div class="row">
-
 <% @wines.each do |wine| %>
     <div class="col s4">
         <%= wine.wine_image %>

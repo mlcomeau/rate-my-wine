@@ -33,7 +33,7 @@ class WinesController < ApplicationController
     end 
 
     def show 
-        @wine = Wine.find(params[:id])
+        @wine = WineDecorator.find(params[:id])
     end 
 
     private 

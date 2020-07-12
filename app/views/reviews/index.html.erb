@@ -1,16 +1,21 @@
-<h3 id="sofia-font">Check out our top reviewed wines!</h3>
+<h3 id="sofia-font">Check out the latest reviews!</h3>
 
+<div class="grid-container">
 
-<% @reviews.collect do |v|%>
-<blockquote>
-    <% if v.stars != 0 %>
-        <%= link_to v.wine.wine_var, wine_path(v.wine) %><br>
-        <% v.stars.round(half: :down).round.times do %>
-            <i class="tiny material-icons">star</i>
-        <% end %>
-    <% end %><br>
-    "<%= v.content %>"<br>
-    <%= v.user.username.capitalize %> paid: <%= v.price %><br>
-</blockquote>
+<% @reviews.collect do |r|%>
+    <div class="grid-item">
+    <%= link_to r.wine.wine_var, wine_path(r.wine) %><br>
+    <% r.star_icons.times do %>
+        <i class="tiny material-icons">star</i>
+    <% end %>
+    <br>
+    "<%= r.content %>"<br>
+    <%= r.user.username.capitalize %> paid: $<%= r.price %><br>
+    <%= r.thumbs %><br>
+    Written at: <%= r.create_time %>
+    </div>
 <% end %>
+
+
+</div>
 

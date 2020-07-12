@@ -34,10 +34,6 @@
     font-family: 'Sofia';
 }
 
-.review {
-    font-size: large;
-}
-
 //centers font 
 #center {
     text-align: center;  
@@ -48,9 +44,26 @@ select{
     display: block;
    }
 
-//float left 
-#float {
+//float right
+#float-right {
     float: right;
 }
 
+//reviews index page 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
 
+.grid-item {
+    background-color: hsl(28, 66%, 74%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: small;
+    text-align: center;
+}
+
+.grid-item a {
+    color: #000000;
+    text-decoration: underline;
+}

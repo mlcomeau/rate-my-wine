@@ -10,6 +10,8 @@ class WineDecorator < Draper::Decorator
   #     end
   #   end
 
+  decorates_finders
+
   def wine_image 
     if object.color == "Red"
       h.image_tag('red_wine.png', class: "displayed")
@@ -24,5 +26,12 @@ class WineDecorator < Draper::Decorator
     h.link_to object.name, h.wine_path(object)
   end 
 
+  def wine_review 
+    h.link_to "Review This Wine", h.new_wine_review_path(object), class: "waves-effect waves-light btn"
+  end 
+
+  def stars_column 
+    object.average_rating.round(half: :down).round
+  end 
 
 end
