@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     end 
 
     def create
-        @review = Review.new(review_params(:price, :stars, :content, :wine_id))
+        @review = Review.new(review_params)
         @review.user_id = session[:user_id]
         if @review.save 
             redirect_to wine_path(@review.wine_id)
@@ -28,13 +28,10 @@ class ReviewsController < ApplicationController
         end 
     end 
 
-    def show 
-        @review = Review.find_by_id(params[:id])
-    end 
 
     private 
-
-    def review_params(*args)
-        params.require(:review).permit(*args)
+    def review_params
+        params.require(:review).permit(:price, :stars, :content, :wine_id)
     end 
+
 end

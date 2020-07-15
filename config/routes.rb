@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: 'sessions#new'
 
-  resources :reviews, except: [:update, :destroy, :edit]
+  resources :reviews, only: [:new, :create, :index]  
   resources :wines, except: [:update, :destroy, :edit] do 
     resources :reviews, only: [:new, :index]
   end 
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resources :wines, only: [:index]
   end 
   resources :users, only: [:new, :create, :show]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end

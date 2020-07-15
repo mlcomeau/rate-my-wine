@@ -34,7 +34,7 @@
 
     <tr>
         <td>AVERAGE PRICE</td>
-        <td>$<%= @wine.average_price %></td>
+        <td><%= number_to_currency(@wine.average_price) %></td>
     </tr>
 </tbody>
 </table>
@@ -43,7 +43,7 @@
 <p class="review">
 <% @wine.reviews.each do |r| %>
     <blockquote>
-    <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username.capitalize %> paid: $<%= r.price %><br>
+    <%= r.stars %> Stars - "<%= r.content%>" - <%= r.user.username.capitalize %> paid: <%= number_to_currency(r.price) %><br>
     </blockquote>
 <% end %>
 </p>

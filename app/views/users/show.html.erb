@@ -1,5 +1,6 @@
 <h1> Hello, <%= @user.username %>! </h1>
 
+
 <p id="sofia-font">Did you try another wine? Tell us about it!</p>
 <%= link_to "Add a Wine", new_wine_path, class: "waves-effect waves-light btn-small" %>
 
@@ -14,13 +15,26 @@
     <div class="divider"></div>
     <div class="section">
         <li><i class="smll material-icons">local_bar</i> <%= review.wine.name %> - <%= review.wine.varietal.name %></li>
-        <li>You paid: $<%= review.price %></li>
+        <li>You paid: <%= number_to_currency(review.price) %></li>
         <li>"<%= review.content %>"</li>
         <li><%= review.stars.times do %>
                 <i class="tiny material-icons">star</i>
-            <% end %>
-        </li>
+        <% end %></li>           
     </div>
 <% end %>
 </ul>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

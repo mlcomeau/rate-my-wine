@@ -10,7 +10,7 @@
     <% end %>
     <br>
     "<%= r.content %>"<br>
-    <%= r.user.username.capitalize %> paid: $<%= r.price %><br>
+    <%= r.user.username.capitalize %> paid: <%= number_to_currency(r.price) %><br>
     <%= r.thumbs %><br>
     Written at: <%= r.create_time %>
     </div>

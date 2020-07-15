@@ -12,7 +12,6 @@ class Wine < ApplicationRecord
 
   scope :order_by_stars, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
 
- 
 
   def self.latest_three
     last(3)
